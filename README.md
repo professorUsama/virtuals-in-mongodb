@@ -20,7 +20,7 @@ when we set toJSON then we can see the virtuals fields in the json response.
 when we print the document in the  console. the the virtual field not show. so if we want the virtual fields show in the console then we add this line 'toObject'
 
 # apis routes
-localhost:6001/api/v1/product/addproduct
-localhost:6001/api/v1/product/get-products
-localhost:6001/api/v1/review/post-review?type=review
-localhost:6001/api/v1/review/get-reviews/?id=656670e8b520923519e1ec09
+- localhost:6001/api/v1/product/addproduct
+- localhost:6001/api/v1/product/get-products
+- localhost:6001/api/v1/review/post-review?type=review
+- localhost:6001/api/v1/review/get-reviews/?id=656670e8b520923519e1ec09
