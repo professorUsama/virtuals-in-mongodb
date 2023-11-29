@@ -24,3 +24,10 @@ when we print the document in the  console. the the virtual field not show. so i
 - localhost:6001/api/v1/product/get-products
 - localhost:6001/api/v1/review/post-review?type=review
 - localhost:6001/api/v1/review/get-reviews/?id=656670e8b520923519e1ec09
+
+
+# Quotation
+we cannot use virtuals with aggregation or may be difficult to use. Because
+- Arguments are not cast to the model's schema because $project operators allow redefining the "shape" of the documents at any stage of the pipeline, which may leave documents in an incompatible format.
+
+- The documents returned are plain javascript objects, not mongoose documents (since any shape of document can be returned).
