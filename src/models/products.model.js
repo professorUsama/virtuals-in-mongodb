@@ -10,7 +10,7 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    specification: {
+    specifications: {
       type: Object,
       required: true,
     },
@@ -23,6 +23,17 @@ const productSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+productSchema.virtual("category").get(function(){
+  const type = this.type;
+  if(type === 1){
+    return "smartphones"
+  }
+  else if(type === 2){
+    return "smartwatech";
+  }
+  return "type not found";
+});
 
 const Product = mongoose.model("product", productSchema);
 
