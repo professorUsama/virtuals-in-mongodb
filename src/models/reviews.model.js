@@ -27,8 +27,30 @@ const reviewSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: {virtuals: true}
   }
 );
+
+reviewSchema.virtual("ratingColor")
+.get(function(){
+  if(this.rating <=50){
+    return "bg-red-500";
+  }
+  else if(this.rating > 50 && this.rating <= 80){
+    return "bg-yellow-500";
+  }
+  else {
+    return "bg-green-500";
+  }
+})
+
+reviewSchema. virtual("avgRating", {
+  ref: "Review",
+  localField: "_id",
+  foreignField: "productID",
+  justOne: false,
+  options: {sort: {rating: -1}},
+});
 
 const Reviews = mongoose.model("review", reviewSchema);
 
