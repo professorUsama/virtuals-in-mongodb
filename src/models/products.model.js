@@ -22,6 +22,7 @@ const productSchema = new mongoose.Schema(
   {
     timestamps: true,
     toJSON: {virtuals: true, transform: (doc, ret) => { delete ret.id; }}, // when we use virtual in mongoose model then the mongoose add the id of the document by default. so the transform delete the id that generated using virtuals
+    // here ret is javascript object and stands for return. it means the document return after transform
   },
 );
 
