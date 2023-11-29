@@ -1,4 +1,4 @@
-import Product from "../models/products.model.js";
+import {Product, productSchema} from "../models/products.model.js";
 
 async function addProductService (req){
     const {name, type, specifications, image} = req.body;

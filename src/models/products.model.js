@@ -21,20 +21,26 @@ const productSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+    toJSON: {virtuals: true},
+  },
 );
 
+
 productSchema.virtual("category").get(function(){
-  const type = this.type;
-  if(type === 1){
+  if(this.type === 1){
     return "smartphones"
   }
-  else if(type === 2){
-    return "smartwatech";
+  if(this.type === 2){
+    return "tablets"
   }
-  return "type not found";
-});
+  if(this.type === 3){
+    return "smartwatches";
+  }
+})
 
 const Product = mongoose.model("product", productSchema);
 
-export default Product;
+export {
+  Product,
+  productSchema,
+};
